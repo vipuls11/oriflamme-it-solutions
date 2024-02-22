@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+Redirect 301 /contact.html  https://oriflammeitsolutions.com/Contact.php 
+
+
+ErrorDocument 404 /notfound.php
+
+
+    
+
+
