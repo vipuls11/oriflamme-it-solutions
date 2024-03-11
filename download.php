@@ -1,22 +1,14 @@
 <?php
+include('connection.php');
 
-
-$_SESSION['IS_DOWNLOAD'] = 'yes';
-
- if(isset($_SESSION['IS_DOWNLOAD'])){ 
-    $file = "CompanyProfile.pdf";
-    $path = "file:///C:/xampp/htdocs/oriflammeitSolution/catelog/$file";
-    
-    if (file_exists($path)) {
-        header("Content-type: application/pdf");
-        header("Content-Disposition: inline; filename=$file");
-        readfile($path);
-        header('location:blogs.php');
-die();
-    } else {
-        echo "File not found: $path";
-    }
-      
+if (isset($_SESSION['IS_DOWNLOAD'])) {
+    unset($_SESSION['IS_DOWNLOAD']);
+    $file = 'CompanyProfile.pdf';
+    header('Content-disposition: attachment; filename=' . $file);
+    header('Content-type: application/pdf');
+    // $path = "C:/xampp/htdocs/oriflammeitSolution/catelog/" . $file;
+    $path = $_SERVER['DOCUMENT_ROOT'] . '/oriflammeitSolution/catelog/' . $file;
+    readfile($path);
+} else {
+    header('location:blogs.php');
 }
-    
-?>
