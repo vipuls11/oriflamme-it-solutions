@@ -650,7 +650,7 @@ jQuery('#frmDownload').on('submit', function(e) {
             // console.log(result);
             if (result.status == 'success') {
                 window.location.href = 'download.php';
-                jQuery('#msg').html('Thank you for Details!');
+                // jQuery('#msg').html('Thank you for Details!');
             } else {
                 jQuery('#msg').html('Please try after sometime');
             }
